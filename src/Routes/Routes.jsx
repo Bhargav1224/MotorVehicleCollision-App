@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home } from "../Components/Home/Home";
+import { Information } from "../Components/Info/Information";
 import { Login } from "../Components/Login/Login";
 import { Navbar } from "../Components/Navbar/Navbar";
 
@@ -12,6 +13,9 @@ export const Routes = () => {
 			<Switch>
 				<Route exact path="/">
 					<Home />
+				</Route>
+				<Route exact path="/car-details/:collision_id">
+					<Information/>
 				</Route>
 				<Route exact path="/login">
 					<Login />
