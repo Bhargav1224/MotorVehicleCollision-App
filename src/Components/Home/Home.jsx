@@ -2,12 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Redirect } from "react-router";
 //local imports
 import "./Home.css";
 import { Link } from "react-router-dom";
 
-import { loadData } from "../../Utilis/localstorage";
 
 export const Home = () => {
 	//Stored the data from API in carData
@@ -19,7 +17,6 @@ export const Home = () => {
 	const [list, setList] = useState(false);
 	const [grid, setGrid] = useState(false);
 
-	const isRegister = loadData("register");
 
 	//getting data from API
 	const getData = () => {
@@ -93,7 +90,7 @@ export const Home = () => {
 		// eslint-disable-next-line
 	}, [page]);
 
-	return isRegister ? (
+	return (
 		<React.Fragment>
 			<div className="filter-container">
 				<input
@@ -229,7 +226,5 @@ export const Home = () => {
 				</button>
 			</div>
 		</React.Fragment>
-	) : (
-		<Redirect to="/" />
 	);
 };
