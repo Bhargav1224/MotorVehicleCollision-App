@@ -1,6 +1,4 @@
-//React with hooks
 import React from "react";
-
 //Material UI imports
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -10,10 +8,9 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
-//Local Components
+//local components
 import { onSignInSubmit, onSubmitOTP } from "../../Firebase/verification";
-import { useMergeState } from "./useMergeState";
+import { useMergeState } from "../Login/useMergeState";
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -35,20 +32,17 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-//Taking initial State which handles all the input fields
 const initialData = {
-	username: "",
 	phoneNumber: "",
 	otp: "",
+	username: "",
 };
 
-export const Login = () => {
+export const Register = () => {
 	//custom hook -------useMergeState
-
-	const { data, handleChange, handleSubmit } = useMergeState(initialData);
+	const { data, handleChange, handleRegister } = useMergeState(initialData);
 	//destructing the values from data
 	const { phoneNumber, otp, username } = data;
-	
 	const classes = useStyles();
 
 	return (
@@ -62,7 +56,7 @@ export const Login = () => {
 						<LockOutlinedIcon />
 					</Avatar>
 					<Typography component="h1" variant="h5">
-						Login
+						Register
 					</Typography>
 
 					<form
@@ -88,7 +82,7 @@ export const Login = () => {
 							type="submit"
 							fullWidth
 							variant="contained"
-							color="primary"
+							color="secondary"
 							className={classes.submit}
 						>
 							Send OTP
@@ -117,7 +111,7 @@ export const Login = () => {
 							type="submit"
 							fullWidth
 							variant="contained"
-							color="primary"
+							color="secondary"
 							className={classes.submit}
 						>
 							Verify OTP
@@ -139,11 +133,11 @@ export const Login = () => {
 					<Button
 						fullWidth
 						variant="contained"
-						color="primary"
+						color="secondary"
 						className={classes.submit}
-						onClick={handleSubmit}
+						onClick={handleRegister}
 					>
-						Login
+						Register
 					</Button>
 				</div>
 			</Container>
