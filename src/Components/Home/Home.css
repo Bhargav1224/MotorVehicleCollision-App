@@ -31,7 +31,7 @@
 }
 .mini-container:hover {
 	filter: brightness(200%);
-	box-shadow: 2px 1px 3px 5px rosybrown;
+	box-shadow: 2px 1px 3px 5px rgb(64, 64, 167);
 }
 .filter-container {
 	width: 300px;
@@ -61,7 +61,7 @@
 	width: 250px;
 	border: none;
 	border-bottom: 2px solid orangered;
-	background-color: rgb(179, 205, 218);
+	background-color: white;
 	outline: none;
 	border-radius: 10px;
 }
@@ -175,7 +175,7 @@
 .list-icon {
 	width: 30px;
 	height: 5px;
-	background-color: white;
+	background-color: rgb(160, 14, 94);
 	position: absolute;
 	top: 5px;
 	left: 3px;
@@ -190,7 +190,7 @@
 .grid span {
 	width: 10px;
 	height: 10px;
-	background-color: white;
+	background-color: rgb(51, 7, 77);
 	position: absolute;
 	top: 5px;
 	cursor: pointer;
