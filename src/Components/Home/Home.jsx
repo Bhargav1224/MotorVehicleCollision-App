@@ -16,6 +16,8 @@ export const Home = () => {
 
 	//Maintaining Pagination state
 	const [page, setPage] = useState(0);
+	const [list, setList] = useState(false);
+	const [grid, setGrid] = useState(false);
 
 	const isRegister = loadData("register");
 
@@ -42,7 +44,7 @@ export const Home = () => {
 		if (date.length > 1) {
 			return axios
 				.get(
-					`https://data.cityofnewyork.us/resource/h9gi-nx95.json?crash_date=${date}&$offset=${page}&$limit=6`
+					`https://data.cityofnewyork.us/resource/h9gi-nx95.json?crash_date=${date}&vehicle_type_code2=PASSENGER%20VEHICLE&$offset=${page}&$limit=6`
 				)
 				.then((res) => {
 					setCarData(res.data);
@@ -74,6 +76,18 @@ export const Home = () => {
 		setPage((prev) => prev + value);
 	};
 
+	//handleList view
+	const handleList = () => {
+		setList(true);
+		setGrid(false);
+	};
+	//handleGrid view
+
+	const handleGrid = () => {
+		setList(false);
+		setGrid(true);
+	};
+
 	useEffect(() => {
 		getData();
 		// eslint-disable-next-line
@@ -91,32 +105,117 @@ export const Home = () => {
 					className="input-filter"
 					placeholder="Filter based on Date"
 				/>
+				<div className="icon">
+					<div className="list" onClick={handleList}>
+						<span className="list-icon"></span>
+						<span className="list-icon"></span>
+						<span className="list-icon"></span>
+					</div>
+					<div className="grid" onClick={handleGrid}>
+						<span className="grid-icon"></span>
+						<span className="grid-icon"></span>
+						<span className="grid-icon"></span>
+						<span className="grid-icon"></span>
+					</div>
+				</div>
 			</div>
-			<div className="container">
-				{carData?.map((item) => (
-					<Link
-						to={`/car-details/${item.collision_id}`}
-						key={item.collision_id}
-						className="mini-container"
-					>
-						<div className="mini-box">
-							<div className="card-content1">{item.vehicle_type_code1}</div>
-							<div className="card-content2">
-								{item.vehicle_type_code2
-									? `Car-2:${item.vehicle_type_code2}`
-									: ""}
-							</div>
-							<div className="card-content3">
-								{item.vehicle_type_code3
-									? `Car-3:${item.vehicle_type_code3}`
-									: ""}
-							</div>
-							<div className="card-content4">{item.crash_time}</div>
-							<div className="card-content5">{item.crash_date}</div>
-						</div>
-					</Link>
-				))}
-			</div>
+			{grid ? (
+				<div className="container">
+					{carData?.map((item) => {
+						return (
+							<>
+								<Link
+									to={`/car-details/${item.collision_id}`}
+									key={item.collision_id}
+									className="mini-container"
+								>
+									<div className="mini-box">
+										<div className="card-content1">
+											{item.vehicle_type_code1}
+										</div>
+										<div className="card-content2">
+											{item.vehicle_type_code2
+												? `Car-2:${item.vehicle_type_code2}`
+												: ""}
+										</div>
+										<div className="card-content3">
+											{item.vehicle_type_code3
+												? `Car-3:${item.vehicle_type_code3}`
+												: ""}
+										</div>
+										<div className="card-content4">{item.crash_time}</div>
+										<div className="card-content5">{item.crash_date}</div>
+									</div>
+								</Link>
+							</>
+						);
+					})}
+				</div>
+			) : list ? (
+				<div className="container2">
+					{carData?.map((item) => {
+						return (
+							<>
+								<Link
+									to={`/car-details/${item.collision_id}`}
+									key={item.collision_id}
+									className="mini-container2"
+								>
+									<div className="mini-box">
+										<div className="card-content1">
+											{item.vehicle_type_code1}
+										</div>
+										<div className="card-content2">
+											{item.vehicle_type_code2
+												? `Car-2:${item.vehicle_type_code2}`
+												: ""}
+										</div>
+										<div className="card-content3">
+											{item.vehicle_type_code3
+												? `Car-3:${item.vehicle_type_code3}`
+												: ""}
+										</div>
+										<div className="card-content4">{item.crash_time}</div>
+										<div className="card-content5">{item.crash_date}</div>
+									</div>
+								</Link>
+							</>
+						);
+					})}
+				</div>
+			) : (
+				<div className="container">
+					{carData?.map((item) => {
+						return (
+							<>
+								<Link
+									to={`/car-details/${item.collision_id}`}
+									key={item.collision_id}
+									className="mini-container"
+								>
+									<div className="mini-box">
+										<div className="card-content1">
+											{item.vehicle_type_code1}
+										</div>
+										<div className="card-content2">
+											{item.vehicle_type_code2
+												? `Car-2:${item.vehicle_type_code2}`
+												: ""}
+										</div>
+										<div className="card-content3">
+											{item.vehicle_type_code3
+												? `Car-3:${item.vehicle_type_code3}`
+												: ""}
+										</div>
+										<div className="card-content4">{item.crash_time}</div>
+										<div className="card-content5">{item.crash_date}</div>
+									</div>
+								</Link>
+							</>
+						);
+					})}
+				</div>
+			)}
 			<div className="pagination">
 				<button
 					className="prev"
