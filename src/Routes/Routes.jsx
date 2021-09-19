@@ -4,6 +4,7 @@ import { Home } from "../Components/Home/Home";
 import { Information } from "../Components/Info/Information";
 import { Login } from "../Components/Login/Login";
 import { Navbar } from "../Components/Navbar/Navbar";
+import { Register } from "../Components/Register/Register";
 
 // import { PrivateRoute } from "./PrivateRoutes";
 export const Routes = () => {
@@ -15,7 +16,10 @@ export const Routes = () => {
 					<Home />
 				</Route>
 				<Route exact path="/car-details/:collision_id">
-					<Information/>
+					<Information />
+				</Route>
+				<Route exact path="/register">
+					<Register />
 				</Route>
 				<Route exact path="/login">
 					<Login />

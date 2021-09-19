@@ -4,16 +4,23 @@ import { Link } from "react-router-dom";
 
 import "./Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
+import { logoutSuccess } from "../../Redux/Login/action";
+import { saveData } from "../../Utilis/localstorage";
 
 export const Navbar = () => {
+	//state from authReducer
+	const { success, username } = useSelector((state) => state.auth);
+
 	//dispatch is used to dispatch the action
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	//History used to move to other components
 	const history = useHistory();
-	let success = false;
 
 	//logout function
 	const handleLogout = () => {
+		saveData("register", false);
+		saveData("registername", "");
+		dispatch(logoutSuccess());
 		history.push("/login");
 	};
 
@@ -29,7 +36,14 @@ export const Navbar = () => {
 				</label>
 				<ul>
 					<li>
-						<Link className="active" to="/details">Info</Link>
+						{/* After login register is replacing with username */}
+						{success ? (
+							<h1 className="username">{username}</h1>
+						) : (
+							<Link className="active" to="/register">
+								Register
+							</Link>
+						)}
 					</li>
 					<li>
 						{/* After login --login is replacing with logout */}
