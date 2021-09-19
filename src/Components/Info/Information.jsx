@@ -3,15 +3,20 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router";
+//Local Imports
 import { LoaderSpinner } from "../Home/Loader";
 import "./Information.css";
 
 export const Information = () => {
+	//Getting Id from useParams;
 	const { collision_id } = useParams();
+
 	const [detailsData, setDetailsData] = useState([]);
+	//Loading,Error states
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 
+	//Fetching data from API using ID
 	const collisionDetails = () => {
 		setIsLoading(true);
 		return axios
@@ -28,6 +33,7 @@ export const Information = () => {
 			});
 	};
 
+	//Rendering after UI is rendered..
 	useEffect(() => {
 		collisionDetails();
 		// eslint-disable-next-line
