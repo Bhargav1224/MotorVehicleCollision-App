@@ -6,7 +6,6 @@ import { useState } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
-
 export const Home = () => {
 	//Stored the data from API in carData
 	const [carData, setCarData] = useState([]);
@@ -16,7 +15,6 @@ export const Home = () => {
 	const [page, setPage] = useState(0);
 	const [list, setList] = useState(false);
 	const [grid, setGrid] = useState(false);
-
 
 	//getting data from API
 	const getData = () => {
@@ -41,7 +39,7 @@ export const Home = () => {
 		if (date.length > 1) {
 			return axios
 				.get(
-					`https://data.cityofnewyork.us/resource/h9gi-nx95.json?crash_date=${date}&vehicle_type_code2=PASSENGER%20VEHICLE&$offset=${page}&$limit=6`
+					`https://data.cityofnewyork.us/resource/h9gi-nx95.json?crash_date=${date}&$offset=${page}&$limit=6`
 				)
 				.then((res) => {
 					setCarData(res.data);
