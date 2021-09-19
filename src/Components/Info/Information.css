@@ -1,8 +1,132 @@
 .details-container {
-	width: 90%;
-	height: 500px;
+	width: 50%;
+	height: fit-content;
 	margin: 20px auto;
 	text-size-adjust: 100%;
-	border: 1px solid black;
+	border: 1px solid rgb(143, 152, 196);
 	border-radius: 10px;
+	padding: 15px;
+	line-height: 2;
+	box-shadow: 2px 1px 3px 1px rgb(75, 59, 134);
+	font-family: "Varela Round", sans-serif;
+	color: black;
+	font-weight: 560;
+	filter: brightness(150%);
+}
+.details-container:hover {
+	filter: brightness(200%);
+	box-shadow: 2px 1px 3px 5px rosybrown;
+}
+
+@media (max-width: 1040px) {
+	.details-container {
+		width: 70%;
+	}
+}
+@media (max-width: 645px) {
+	.details-container {
+		width: 90%;
+	}
+}
+
+.p1:before {
+	color: rgb(160, 14, 94);
+	content: "Borough: ";
+}
+.p2:before {
+	color: rgb(51, 7, 77);
+	content: "Contributed-Vehicle-1: ";
+}
+.p3:before {
+	color: rgb(160, 14, 94);
+	content: "Contributed-Vehicle-2: ";
+}
+.p4:before {
+	color: rgb(51, 7, 77);
+	content: "Contributed-Vehicle-3: ";
+}
+.p5:before {
+	color: rgb(160, 14, 94);
+	content: "Crash-Date: ";
+}
+.p6:before {
+	color: rgb(51, 7, 77);
+
+	content: "Crash-Time: ";
+}
+.p7:before {
+	color: rgb(160, 14, 94);
+	content: "Longitude: ";
+}
+.p8:before {
+	color: rgb(51, 7, 77);
+
+	content: "Car-1: ";
+}
+.p9:before {
+	color: rgb(160, 14, 94);
+	content: "Car-2: ";
+}
+.p10:before {
+	color: rgb(51, 7, 77);
+
+	content: "Crash-Date: ";
+}
+.p11:before {
+	color: rgb(160, 14, 94);
+	content: "Car-3: ";
+}
+.p12:before {
+	color: rgb(51, 7, 77);
+
+	content: "ZipCode: ";
+}
+.p13:before {
+	color: rgb(160, 14, 94);
+	content: "Cyclist-Injured: ";
+}
+.p14:before {
+	color: rgb(51, 7, 77);
+
+	content: "Cyclist-Injured: ";
+}
+.p15:before {
+	color: rgb(160, 14, 94);
+	content: "Cyclist-Killed: ";
+}
+.p16:before {
+	color: rgb(51, 7, 77);
+
+	content: "Motorist-Injured: ";
+}
+.p17:before {
+	color: rgb(160, 14, 94);
+	content: "Motorist-Killed: ";
+}
+.p18:before {
+	color: rgb(51, 7, 77);
+
+	content: "Pedestrians-Injured: ";
+}
+.p19:before {
+	color: rgb(160, 14, 94);
+	content: "Pedestrians-Killed: ";
+}
+.p20:before {
+	color: rgb(51, 7, 77);
+
+	content: "Persons-Injured: ";
+}
+.p21:before {
+	color: rgb(160, 14, 94);
+	content: "Persons-Killed: ";
+}
+.p22:before {
+	color: rgb(51, 7, 77);
+
+	content: "Off-Street: ";
+}
+.p23:before {
+	color: rgb(160, 14, 94);
+	content: "On-Street: ";
 }
