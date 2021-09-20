@@ -25,7 +25,7 @@
 ![Mvc-Collision-Details](https://user-images.githubusercontent.com/77038785/133936485-739d4972-7719-4d55-9167-3104bf4265a1.PNG)
 
 
-This is the project I started as a challange. I was build an MVC web app which provides features of OTP verification and after login user will able to see the motor-vehicle-collision lists , if user will clicks on particular card he will be going to details page where he can see all the details of collision and the website is responsive for tablet and mobile screens, for [Live Demo](https://trinkerr-otp-app.vercel.app/).
+This is the project I started as a challange. I was build an MVC web app which provides features of OTP verification and after login user will able to see the motor-vehicle-collision lists , if user will clicks on particular card he will be going to details page where he can see all the details of collision and the website is responsive for tablet and mobile screens, for [Live Demo](https://mvc-five.vercel.app/).
 
 
 # Table of Contents
